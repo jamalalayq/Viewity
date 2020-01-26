@@ -14,6 +14,7 @@
 		043364B523DDB40900743AA9 /* Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043364B423DDB40900743AA9 /* Styling.swift */; };
 		043364B723DDB43000743AA9 /* Exeptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043364B623DDB43000743AA9 /* Exeptions.swift */; };
 		043364BA23DDB6B900743AA9 /* ListsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043364B923DDB6B900743AA9 /* ListsViews.swift */; };
+		043364E723DDEDF000743AA9 /* Devices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043364E623DDEDF000743AA9 /* Devices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		043364B423DDB40900743AA9 /* Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styling.swift; sourceTree = "<group>"; };
 		043364B623DDB43000743AA9 /* Exeptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exeptions.swift; sourceTree = "<group>"; };
 		043364B923DDB6B900743AA9 /* ListsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViews.swift; sourceTree = "<group>"; };
+		043364E623DDEDF000743AA9 /* Devices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Devices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				043364B423DDB40900743AA9 /* Styling.swift */,
 				043364B623DDB43000743AA9 /* Exeptions.swift */,
 				043364B923DDB6B900743AA9 /* ListsViews.swift */,
+				043364E623DDEDF000743AA9 /* Devices.swift */,
 			);
 			path = Viewity;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				043364B123DDB1EE00743AA9 /* ViewsVars.swift in Sources */,
 				043364AF23DDB17F00743AA9 /* BuildingViews.swift in Sources */,
 				043364B723DDB43000743AA9 /* Exeptions.swift in Sources */,
+				043364E723DDEDF000743AA9 /* Devices.swift in Sources */,
 				043364B523DDB40900743AA9 /* Styling.swift in Sources */,
 				043364B323DDB24100743AA9 /* GeneralUsage.swift in Sources */,
 			);
