@@ -51,3 +51,22 @@ internal extension Naming {
     func name(of object: AnyClass) -> String { .init(describing: object) }
 
 }
+
+public enum Light {
+    case on, off
+}
+
+
+public protocol Indicatorable { }
+
+public extension Indicatorable where Self: UIViewController {
+
+    func makeNetworkLoaderIn(turn: Light) {
+        DispatchQueue.main
+            .async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = turn == .on
+        }
+    }
+
+
+}
