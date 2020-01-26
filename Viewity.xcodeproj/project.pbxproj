@@ -15,6 +15,7 @@
 		043364B723DDB43000743AA9 /* Exeptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043364B623DDB43000743AA9 /* Exeptions.swift */; };
 		043364BA23DDB6B900743AA9 /* ListsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043364B923DDB6B900743AA9 /* ListsViews.swift */; };
 		043364E723DDEDF000743AA9 /* Devices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043364E623DDEDF000743AA9 /* Devices.swift */; };
+		043364E923DDEE3300743AA9 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043364E823DDEE3300743AA9 /* Storyboards.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		043364B623DDB43000743AA9 /* Exeptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exeptions.swift; sourceTree = "<group>"; };
 		043364B923DDB6B900743AA9 /* ListsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViews.swift; sourceTree = "<group>"; };
 		043364E623DDEDF000743AA9 /* Devices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Devices.swift; sourceTree = "<group>"; };
+		043364E823DDEE3300743AA9 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				043364B623DDB43000743AA9 /* Exeptions.swift */,
 				043364B923DDB6B900743AA9 /* ListsViews.swift */,
 				043364E623DDEDF000743AA9 /* Devices.swift */,
+				043364E823DDEE3300743AA9 /* Storyboards.swift */,
 			);
 			path = Viewity;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043364E923DDEE3300743AA9 /* Storyboards.swift in Sources */,
 				043364BA23DDB6B900743AA9 /* ListsViews.swift in Sources */,
 				043364B123DDB1EE00743AA9 /* ViewsVars.swift in Sources */,
 				043364AF23DDB17F00743AA9 /* BuildingViews.swift in Sources */,
