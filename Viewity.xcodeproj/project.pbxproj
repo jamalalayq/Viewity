@@ -8,12 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		043364A823DDAFD200743AA9 /* Viewity.h in Headers */ = {isa = PBXBuildFile; fileRef = 043364A623DDAFD200743AA9 /* Viewity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		043364AF23DDB17F00743AA9 /* BuildingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043364AE23DDB17F00743AA9 /* BuildingViews.swift */; };
+		043364B123DDB1EE00743AA9 /* ViewsVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043364B023DDB1EE00743AA9 /* ViewsVars.swift */; };
+		043364B323DDB24100743AA9 /* GeneralUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043364B223DDB24100743AA9 /* GeneralUsage.swift */; };
+		043364B523DDB40900743AA9 /* Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043364B423DDB40900743AA9 /* Styling.swift */; };
+		043364B723DDB43000743AA9 /* Exeptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043364B623DDB43000743AA9 /* Exeptions.swift */; };
+		043364BA23DDB6B900743AA9 /* ListsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043364B923DDB6B900743AA9 /* ListsViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		043364A323DDAFD200743AA9 /* Viewity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Viewity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		043364A623DDAFD200743AA9 /* Viewity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Viewity.h; sourceTree = "<group>"; };
 		043364A723DDAFD200743AA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		043364AE23DDB17F00743AA9 /* BuildingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingViews.swift; sourceTree = "<group>"; };
+		043364B023DDB1EE00743AA9 /* ViewsVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsVars.swift; sourceTree = "<group>"; };
+		043364B223DDB24100743AA9 /* GeneralUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUsage.swift; sourceTree = "<group>"; };
+		043364B423DDB40900743AA9 /* Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styling.swift; sourceTree = "<group>"; };
+		043364B623DDB43000743AA9 /* Exeptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exeptions.swift; sourceTree = "<group>"; };
+		043364B923DDB6B900743AA9 /* ListsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +60,12 @@
 			children = (
 				043364A623DDAFD200743AA9 /* Viewity.h */,
 				043364A723DDAFD200743AA9 /* Info.plist */,
+				043364AE23DDB17F00743AA9 /* BuildingViews.swift */,
+				043364B023DDB1EE00743AA9 /* ViewsVars.swift */,
+				043364B223DDB24100743AA9 /* GeneralUsage.swift */,
+				043364B423DDB40900743AA9 /* Styling.swift */,
+				043364B623DDB43000743AA9 /* Exeptions.swift */,
+				043364B923DDB6B900743AA9 /* ListsViews.swift */,
 			);
 			path = Viewity;
 			sourceTree = "<group>";
@@ -95,6 +113,7 @@
 				TargetAttributes = {
 					043364A223DDAFD200743AA9 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -131,6 +150,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043364BA23DDB6B900743AA9 /* ListsViews.swift in Sources */,
+				043364B123DDB1EE00743AA9 /* ViewsVars.swift in Sources */,
+				043364AF23DDB17F00743AA9 /* BuildingViews.swift in Sources */,
+				043364B723DDB43000743AA9 /* Exeptions.swift in Sources */,
+				043364B523DDB40900743AA9 /* Styling.swift in Sources */,
+				043364B323DDB24100743AA9 /* GeneralUsage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +286,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -277,6 +303,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = NO;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -286,6 +313,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
