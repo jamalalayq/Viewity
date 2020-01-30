@@ -160,10 +160,51 @@ public extension UIButton {
         return self
     }
 
-
     @discardableResult
     func target(in container: Any?, action: Selector, state: UIControl.Event = .touchUpInside) -> Self {
         addTarget(container, action: action, for: state)
+        return self
+    }
+
+    @discardableResult
+    func font(_ typeface: UIFont) -> Self {
+        titleLabel?.font = typeface
+        return self
+    }
+
+    @discardableResult
+    func alignment(_ value: NSTextAlignment) -> Self {
+        titleLabel?.textAlignment = value
+        return self
+    }
+
+    @discardableResult
+    func content(insets: UIEdgeInsets) -> Self {
+        contentEdgeInsets = insets
+        return self
+    }
+
+    @discardableResult
+    func horizontalContent(alignment: ContentHorizontalAlignment) -> Self {
+        contentHorizontalAlignment = alignment
+        return self
+    }
+
+    @discardableResult
+    func verticalContent(alignment: ContentVerticalAlignment) -> Self {
+        contentVerticalAlignment = alignment
+        return self
+    }
+
+    @discardableResult
+    func icon(insets: UIEdgeInsets) -> Self {
+        imageEdgeInsets = insets
+        return self
+    }
+
+    @discardableResult
+    func text(insets: UIEdgeInsets) -> Self {
+        titleEdgeInsets = insets        
         return self
     }
 
@@ -245,7 +286,8 @@ public extension UILabel {
 
 public extension UITextField {
 
-    @discardableResult func placeholder(_ text: String) -> Self {
+    @discardableResult
+    func placeholder(_ text: String) -> Self {
         self.placeholder = text
         attributedPlaceholder = NSAttributedString(
             string: placeholder ?? "",

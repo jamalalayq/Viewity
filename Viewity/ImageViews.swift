@@ -25,6 +25,7 @@ public extension UIImageView {
 }
 
 public protocol Cacheable { }
+
 public extension Cacheable where Self: UIImageView {
 
     func loadImage(from link: String, hint: UIImage? = .none, _ errorHandler: ((Error?) -> Void)? = nil) {

@@ -15,7 +15,7 @@ import UIKit.UICollectionView
 extension UITableView: Naming {
 
     @discardableResult
-    func updateBatch(_ block: ()-> Void) -> Self {
+    public func updateBatch(_ block: ()-> Void) -> Self {
         beginUpdates()
         block()
         endUpdates()
@@ -23,19 +23,19 @@ extension UITableView: Naming {
     }
 
     @discardableResult
-    func reload() -> Self {
+    public func reload() -> Self {
         reloadData()
         return self
     }
 
     @discardableResult
-    func dataSource(_ source: UITableViewDataSource?) -> Self {
+    public func dataSource(_ source: UITableViewDataSource?) -> Self {
         dataSource = source
         return self
     }
 
     @discardableResult
-    func delegate(_ source: UITableViewDelegate?) -> Self {
+    public func delegate(_ source: UITableViewDelegate?) -> Self {
         delegate = source
         return self
     }
@@ -97,19 +97,19 @@ extension UITableView: Naming {
 extension UICollectionView: Naming {
 
     @discardableResult
-    func reload() -> Self {
+    public func reload() -> Self {
         reloadData()
         return self
     }
 
     @discardableResult
-    func dataSource(_ source: UICollectionViewDataSource?) -> Self {
+    public func dataSource(_ source: UICollectionViewDataSource?) -> Self {
         dataSource = source
         return self
     }
 
     @discardableResult
-    func delegate(_ source: UICollectionViewDelegate?) -> Self {
+    public func delegate(_ source: UICollectionViewDelegate?) -> Self {
         delegate = source
         return self
     }
