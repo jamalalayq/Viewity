@@ -34,6 +34,14 @@ public extension UIView {
                 layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
             case .upRightDownLeft:
                 layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMaxYCorner]
+            case .upLeft:
+                layer.maskedCorners = .layerMinXMinYCorner
+            case .downLeft:
+                layer.maskedCorners = .layerMinXMaxYCorner
+            case .upRight:
+                layer.maskedCorners = .layerMaxXMinYCorner
+            case .downRight:
+                layer.maskedCorners = .layerMaxXMaxYCorner
         }
         layer.cornerRadius = radius
         layer.masksToBounds = true

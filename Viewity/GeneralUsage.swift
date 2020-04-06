@@ -9,7 +9,6 @@
 import UIKit.UIView
 
 public extension UIView {
-
     typealias AxisMargin = CGPoint
 
     enum Dimensions {
@@ -40,6 +39,7 @@ public extension UIView {
 
     enum CornerStyle {
         case all, up, down, right, left, upLeftDownRight, upRightDownLeft
+        case upLeft, downLeft, upRight, downRight
     }
 
 }
@@ -47,26 +47,20 @@ public extension UIView {
 
 internal protocol Naming { }
 internal extension Naming {
-
     func name(of object: AnyClass) -> String { .init(describing: object) }
-
 }
 
 public enum Light {
     case on, off
 }
 
-
 public protocol Indicatorable { }
 
 public extension Indicatorable where Self: UIViewController {
-
     func makeNetworkLoaderIn(turn: Light) {
         DispatchQueue.main
             .async {
             UIApplication.shared.isNetworkActivityIndicatorVisible = turn == .on
         }
     }
-
-
 }

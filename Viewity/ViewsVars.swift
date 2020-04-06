@@ -9,7 +9,5 @@
 import UIKit.UIView
 
 public extension UIView {
-
     var midHeight: CGFloat { bounds.size.height * 0.50 }
-    
 }

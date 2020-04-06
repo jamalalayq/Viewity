@@ -9,7 +9,6 @@
 import UIKit.UIView
 
 public extension UIView {
-
     /// Set views in view
     /// - Parameter views: bunch of subview to add them in super view
     @discardableResult
