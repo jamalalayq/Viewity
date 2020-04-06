@@ -43,10 +43,18 @@ public extension Cacheable where Self: UIImageView {
         session.configuration.requestCachePolicy = .useProtocolCachePolicy
         session.dataTask(with: url) { (_data, _, _error) in
             if _error != nil {
-                DispatchQueue.main
-                    .async {
-                        self.image = hint
-                        errorHandler?(_error)
+                do {
+                    let urlContent = try Data(contentsOf: url)
+                    DispatchQueue.main
+                        .async {
+                            self.image = UIImage(data: urlContent)
+                    }
+                } catch {
+                    DispatchQueue.main
+                        .async {
+                            self.image = hint
+                            errorHandler?(error)
+                    }
                 }
                 return
             }
