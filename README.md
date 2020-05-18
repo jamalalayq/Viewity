@@ -14,3 +14,30 @@ Use declarative syntax to build view via code.
 # Installation
 Copy Github link and add it as a Swift Package Manager library.
 
+# Usage 
+```swift
+import UIKit
+import Viewity
+
+class ViewController: UIViewController {
+
+    let button = Button(frame: .zero)
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.add(button)
+        button.text("Tap Me!")
+        button.onTap {
+            print(#function)
+        }
+        button.putInCenter()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.view.background(.systemRed, animated: true)
+    }
+
+}
+
+```
