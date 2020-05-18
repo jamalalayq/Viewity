@@ -10,3 +10,7 @@ Use declarative syntax to build view via code.
 ## Button class with on tap function to handle user tapping.
 ## Label with new insets attribute to add padding.
 ##  Text views, Stack views, Buttons, Labels, Views, Text fields, Image views, Table views and Collections views.
+
+# Installation
+Copy Github link and add it as a Swift Package Manager library.
+
