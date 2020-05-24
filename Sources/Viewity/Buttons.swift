@@ -12,6 +12,7 @@ public class Button: UIButton {
     public typealias BasicHandler = () -> Void
     private var tappingHandler: BasicHandler?
     @IBInspectable var indicatorColor: UIColor = UIColor.gray
+    @IBInspectable var animatedTaps: Bool = false
     public var isLoadable: Bool = false {
         didSet {
             DispatchQueue.main.async {
@@ -170,6 +171,55 @@ public extension UIButton {
     func text(insets: UIEdgeInsets) -> Self {
         titleEdgeInsets = insets
         return self
+    }
+
+}
+
+// MARK:- Buttons Clicks Animation
+
+extension Button {
+
+    // TODO: Animate buttons taps
+
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        if animatedTaps {
+            UIView.animate(withDuration: 0.2,
+                           delay: 0,
+                           usingSpringWithDamping: 0.4,
+                           initialSpringVelocity: 0.3,
+                           options: [.curveEaseInOut, .allowUserInteraction],
+                           animations: { [weak self] in
+                            guard let self = self else { return }
+                            self.transform = self.transform.scaledBy(x: 0.97, y: 0.97)
+            })
+        }
+    }
+
+    override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        if animatedTaps {
+            endTouch()
+        }
+    }
+
+    override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        if animatedTaps {
+            endTouch()
+        }
+    }
+
+    private func endTouch() {
+        UIView.animate(withDuration: 0.4,
+                       delay: 0,
+                       usingSpringWithDamping: 0.4,
+                       initialSpringVelocity: 0.3,
+                       options: [.curveEaseInOut, .allowUserInteraction],
+                       animations: { [weak self] in
+                        guard let self = self else { return }
+                        self.transform = .identity
+        })
     }
 
 }
