@@ -11,6 +11,21 @@ import UIKit.UIButton
 public class Button: UIButton {
     public typealias BasicHandler = () -> Void
     private var tappingHandler: BasicHandler?
+    @IBInspectable var indicatorColor: UIColor = UIColor.gray
+    public var isLoadable: Bool = false {
+        didSet {
+            DispatchQueue.main.async {
+                self.isLoadable ? self.startLoading() : self.stopLoading()
+            }
+        }
+    }
+    private let indicator: UIActivityIndicatorView = {
+        let iv = UIActivityIndicatorView.init(style: .white)
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.hidesWhenStopped = true
+        iv.tintColor = .white
+        return iv
+    }()
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,8 +37,13 @@ public class Button: UIButton {
         setup()
     }
 
+    public override func draw(_ rect: CGRect) {
+        indicator.color = indicatorColor
+    }
+
     private func setup() {
         addTarget(self, action: #selector(clickAction), for: .touchUpInside)
+        indicator.color = indicatorColor
     }
 
     @objc private func clickAction() {
@@ -32,6 +52,40 @@ public class Button: UIButton {
 
     public func onTap(_ handler: BasicHandler?) {
         self.tappingHandler = handler
+    }
+
+    @discardableResult
+    public func loadable(_ state: Bool) -> Button {
+        self.isLoadable = state
+        return self
+    }
+
+    private func startLoading() {
+        titleLabel?.alpha = 0
+        titleLabel?.isHidden = true
+        titleLabel?.layer.opacity = 0
+        imageView?.alpha = 0
+        imageView?.isHidden = true
+        imageView?.layer.opacity = 0
+        setTitleColor(.clear, for: .normal)
+        isEnabled = false
+        addSubview(indicator)
+        indicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        indicator.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        indicator.startAnimating()
+    }
+
+    private func stopLoading() {
+        titleLabel?.alpha = 1
+        titleLabel?.isHidden = false
+        titleLabel?.layer.opacity = 1
+        imageView?.alpha = 1
+        imageView?.isHidden = false
+        imageView?.layer.opacity = 1
+        setTitleColor(tintColor, for: .normal)
+        isEnabled = true
+        indicator.stopAnimating()
+        indicator.removeFromSuperview()
     }
 }
 
