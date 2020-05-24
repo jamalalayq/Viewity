@@ -20,24 +20,40 @@ import UIKit
 import Viewity
 
 class ViewController: UIViewController {
-
     let button = Button(frame: .zero)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.add(button)
         button.text("Tap Me!")
-        button.onTap {
-            print(#function)
+              .foreground(.white)
+              .tint(.white)
+              .onTap { [unowned button] in
+                button.loadable(true)
+                print(#function)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
+                    button.loadable(false)
+                }
         }
+
         button.putInCenter()
+        let gradient = LinearGradient(
+            frame: .init(
+                origin: .zero,
+                size: .init(
+                    width: button.intrinsicContentSize.width,
+                    height: button.intrinsicContentSize.height
+                )
+            ),
+            colors: [.systemGreen, .systemBlue]
+        )
+        button.gradient(of: gradient)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.view.background(.systemRed, animated: true)
+        self.view.background(.white, animated: true)
     }
-
 }
 
 ```
