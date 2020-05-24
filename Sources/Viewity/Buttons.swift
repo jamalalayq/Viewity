@@ -11,8 +11,8 @@ import UIKit.UIButton
 public class Button: UIButton {
     public typealias BasicHandler = () -> Void
     private var tappingHandler: BasicHandler?
-    @IBInspectable var indicatorColor: UIColor = UIColor.gray
-    @IBInspectable var animatedTaps: Bool = false
+    @IBInspectable public var indicatorColor: UIColor = UIColor.gray
+    @IBInspectable public var animatedTaps: Bool = false
     public var isLoadable: Bool = false {
         didSet {
             DispatchQueue.main.async {
