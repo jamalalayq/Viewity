@@ -8,7 +8,7 @@
 
 import UIKit.UIButton
 
-public class Button: UIButton {
+open class Button: UIButton {
     public typealias BasicHandler = () -> Void
     private var tappingHandler: BasicHandler?
     @IBInspectable public var indicatorColor: UIColor = UIColor.gray
