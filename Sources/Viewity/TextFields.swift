@@ -132,19 +132,19 @@ internal extension UIEdgeInsets {
 }
 
 public class TextField: UITextField {
-    lazy var padding: UIEdgeInsets = .padding(from: self.bounds)
+    private lazy var padding: UIEdgeInsets = .padding(from: self.bounds)
 
-    @discardableResult func padding(_ offset: UIOffset) -> Self {
+    @discardableResult public func padding(_ offset: UIOffset) -> Self {
         padding = .init(top: offset.vertical, left: offset.horizontal, bottom: offset.vertical, right: offset.horizontal)
         return self
     }
 
-    @discardableResult func padding(_ insets: UIEdgeInsets) -> Self {
+    @discardableResult public func padding(_ insets: UIEdgeInsets) -> Self {
         padding = insets
         return self
     }
 
-    @discardableResult func padding(_ value: CGFloat, _ direction: UITextField.PaddingAxis = .all) -> Self {
+    @discardableResult public func padding(_ value: CGFloat, _ direction: UITextField.PaddingAxis = .all) -> Self {
         switch direction {
             case .all:
                 return padding(UIEdgeInsets(top: value, left: value, bottom: value, right: value))
