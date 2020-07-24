@@ -29,7 +29,8 @@ public extension UITextField {
     }
 
     @discardableResult
-    func right(view: UIView) -> Self {
+    func right(view: UIView, with mode: UITextField.ViewMode = .always) -> Self {
+        rightViewMode = mode
         rightView = view
         return self
     }
@@ -41,14 +42,15 @@ public extension UITextField {
     }
 
     @discardableResult
-    func left(mode: UITextField.ViewMode) -> Self {
+    func left(view: UIView, with mode: UITextField.ViewMode = .always) -> Self {
         leftViewMode = mode
+        leftView = view
         return self
     }
 
     @discardableResult
-    func left(view: UIView) -> Self {
-        leftView = view
+    func left(mode: UITextField.ViewMode) -> Self {
+        leftViewMode = mode
         return self
     }
 
