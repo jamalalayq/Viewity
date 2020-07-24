@@ -66,23 +66,23 @@ public extension UITextView {
         self.delegate = value
         return self
     }
-    
+
     @discardableResult func padding(_ insets: UIEdgeInsets = .init(top: 8, left: 8, bottom: 8, right: 8)) -> Self {
         textContainerInset = insets
         return self
     }
-    
+
     @discardableResult func padding(_ offset: UIOffset) -> Self {
-        padding(.init(top: offset.vertical, left: offset.horizontal, bottom: offset.vertical, right: offset.horizontal))        
+        padding(.init(top: offset.vertical, left: offset.horizontal, bottom: offset.vertical, right: offset.horizontal))
     }
-    
+
     @discardableResult func padding(_ value: CGFloat) -> Self {
         padding(UIEdgeInsets(top: value, left: value, bottom: value, right: value))
     }
 
 }
 
-public class TextView: UITextView, UITextViewDelegate {
+open class TextView: UITextView, UITextViewDelegate {
     public var hintColor: UIColor = .lightGray { didSet { setNeedsDisplay() } }
     public var hint: String = "" { didSet { setNeedsDisplay() } }
     public var foregroundColor: UIColor = .darkText { didSet { setNeedsDisplay() } }

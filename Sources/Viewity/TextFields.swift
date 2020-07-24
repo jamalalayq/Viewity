@@ -131,7 +131,7 @@ internal extension UIEdgeInsets {
     }
 }
 
-public class TextField: UITextField {
+open class TextField: UITextField {
     private lazy var padding: UIEdgeInsets = .padding(from: self.bounds)
 
     @discardableResult public func padding(_ offset: UIOffset) -> Self {
