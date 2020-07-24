@@ -50,8 +50,8 @@ public extension UITextView {
     }
 
     @discardableResult
-    func foreground(_ value: UIColor) -> Self {
-        self.textColor = value
+    func foreground(color: UIColor) -> Self {
+        self.textColor = color
         return self
     }
 
@@ -66,6 +66,55 @@ public extension UITextView {
         self.delegate = value
         return self
     }
+    
+    @discardableResult func padding(_ insets: UIEdgeInsets = .init(top: 8, left: 8, bottom: 8, right: 8)) -> Self {
+        textContainerInset = insets
+        return self
+    }
+    
+    @discardableResult func padding(_ offset: UIOffset) -> Self {
+        padding(.init(top: offset.vertical, left: offset.horizontal, bottom: offset.vertical, right: offset.horizontal))        
+    }
+    
+    @discardableResult func padding(_ value: CGFloat) -> Self {
+        padding(UIEdgeInsets(top: value, left: value, bottom: value, right: value))
+    }
 
 }
 
+public class TextView: UITextView, UITextViewDelegate {
+    public var hintColor: UIColor = .lightGray { didSet { setNeedsDisplay() } }
+    public var hint: String = "" { didSet { setNeedsDisplay() } }
+    public var foregroundColor: UIColor = .darkText { didSet { setNeedsDisplay() } }
+
+    public override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        if foregroundColor != hintColor {
+            delegate = self
+            if text.isEmpty {
+                text = hint
+                textColor = hintColor
+            } else {
+                textColor = foregroundColor
+            }
+        }
+    }
+
+    public var value: String? { text == hint ? nil : text }
+
+    public func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == hint && textView.textColor == hintColor {
+            textView.text = ""
+            textView.textColor = foregroundColor
+        }
+    }
+
+    public func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = hint
+            textView.textColor = hintColor
+        } else {
+            textView.textColor = foregroundColor
+        }
+    }
+}
