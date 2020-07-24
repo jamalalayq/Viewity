@@ -117,4 +117,54 @@ public extension UITextField {
         return self
     }
 
+    enum PaddingAxis {
+        case vertical, horizontal, all
+    }
+
+}
+
+internal extension UIEdgeInsets {
+    static func padding(from bounds: CGRect) -> Self {
+        let horizontal = CGFloat(bounds.size.width * 0.08)
+        let vertical = CGFloat(bounds.size.height * 0.08)
+        return UIEdgeInsets(top: vertical, left: horizontal, bottom: vertical, right: horizontal)
+    }
+}
+
+public class TextField: UITextField {
+    lazy var padding: UIEdgeInsets = .padding(from: self.bounds)
+
+    @discardableResult func padding(_ offset: UIOffset) -> Self {
+        padding = .init(top: offset.vertical, left: offset.horizontal, bottom: offset.vertical, right: offset.horizontal)
+        return self
+    }
+
+    @discardableResult func padding(_ insets: UIEdgeInsets) -> Self {
+        padding = insets
+        return self
+    }
+
+    @discardableResult func padding(_ value: CGFloat, _ direction: UITextField.PaddingAxis = .all) -> Self {
+        switch direction {
+            case .all:
+                return padding(UIEdgeInsets(top: value, left: value, bottom: value, right: value))
+            case .horizontal:
+                return padding(UIEdgeInsets(top: .zero, left: value, bottom: .zero, right: value))
+            case .vertical:
+                return padding(UIEdgeInsets(top: value, left: .zero, bottom: value, right: .zero))
+        }
+    }
+
+    public override func textRect(forBounds bounds: CGRect) -> CGRect {
+        bounds.inset(by: padding)
+    }
+
+    public override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        bounds.inset(by: padding)
+    }
+
+    public override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        bounds.inset(by: padding)
+    }
+
 }
