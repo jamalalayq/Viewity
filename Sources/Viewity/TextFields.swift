@@ -100,5 +100,9 @@ public extension UITextField {
         return self
     }
 
-}
+    @discardableResult func content(type: UITextContentType) -> Self {
+        textContentType = type
+        return self
+    }
 
+}
