@@ -47,4 +47,6 @@ public extension UIApplication {
         applicationIconBadgeNumber = number
         return self
     }
+
+    func convertDeviceToken(_ data: Data) -> String { data.reduce("") { $0 + String(format: "%02X", $1) } }
 }
