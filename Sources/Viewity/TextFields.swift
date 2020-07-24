@@ -112,4 +112,9 @@ public extension UITextField {
         return self
     }
 
+    @discardableResult func style(_ value: UITextField.BorderStyle) -> Self {
+        borderStyle = value
+        return self
+    }
+
 }
