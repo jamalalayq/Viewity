@@ -83,19 +83,25 @@ public extension UIView {
     }
 
     /// Set Hidden state with animations
+    /// - Note:-  If animated variable is equal true use the completion closure to guarantee next  code run after animation completed.
     @discardableResult
-    func hidden(_ hide: Bool) -> Self {
-        UIView.animate(
-            withDuration: 0.3,
-            animations: {
-                self.alpha = hide ? 0 : 1
-        }) {  _ in
-            self.isHidden = hide
+    func hidden(_ hide: Bool, animated: Bool = false, _ completion: (() -> Void)? = nil) -> Self {
+        if animated {
+            UIView.animate(
+                withDuration: 0.3,
+                animations: {
+                    self.alpha = hide ? 0 : 1
+            }) {  _ in
+                self.isHidden = hide
+                completion?()
+            }
+        } else {
+            isHidden = hide
         }
         return self
     }
 
-    /// Set alpha with animations.
+/// Set alpha with animations.
     @discardableResult
     func opacity(_ value: CGFloat) -> Self {
         UIView.animate(withDuration: 0.5) { self.alpha = value }
