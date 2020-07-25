@@ -12,14 +12,7 @@ open class Button: UIButton {
     public typealias BasicHandler = () -> Void
     private var tappingHandler: BasicHandler?
     @IBInspectable public var indicatorColor: UIColor = UIColor.gray
-    @IBInspectable public var animatedTaps: Bool = false
-    public var isLoadable: Bool = false {
-        didSet {
-            DispatchQueue.main.async {
-                self.isLoadable ? self.startLoading() : self.stopLoading()
-            }
-        }
-    }
+    @IBInspectable public var animatedTaps: Bool = false    
     private let indicator: UIActivityIndicatorView = {
         let iv = UIActivityIndicatorView.init(style: .white)
         iv.translatesAutoresizingMaskIntoConstraints = false
@@ -56,8 +49,10 @@ open class Button: UIButton {
     }
 
     @discardableResult
-    public func loadable(_ state: Bool) -> Button {
-        self.isLoadable = state
+    public func loading(status: Light) -> Button {
+        DispatchQueue.main.async {
+            status == .on ? self.startLoading() : self.stopLoading()
+        }
         return self
     }
 

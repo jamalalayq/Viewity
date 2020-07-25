@@ -49,3 +49,7 @@ internal protocol Naming { }
 internal extension Naming {
     func name(of object: AnyClass) -> String { .init(describing: object) }
 }
+
+public enum Light {
+    case on, off
+}
