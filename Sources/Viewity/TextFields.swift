@@ -123,14 +123,6 @@ public extension UITextField {
 
 }
 
-internal extension UIEdgeInsets {
-    static func padding(from bounds: CGRect) -> Self {
-        let horizontal = CGFloat(bounds.size.width * 0.08)
-        let vertical = CGFloat(bounds.size.height * 0.08)
-        return UIEdgeInsets(top: vertical, left: horizontal, bottom: vertical, right: horizontal)
-    }
-}
-
 open class TextField: UITextField {
     private lazy var padding: UIEdgeInsets = .padding(from: self.bounds)
 
